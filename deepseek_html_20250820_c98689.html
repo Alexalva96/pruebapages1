@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Software y Mejores Prácticas</title>
+    <style>
+        /* Variables de colores y estilos */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Tarjetas de contenido */
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin: 15px 0 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Secciones especiales */
+        .full-width {
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .full-width h2 {
+            color: white;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Colores temáticos para diferentes categorías */
+        .design {
+            border-top: 4px solid var(--secondary);
+        }
+
+        .architecture {
+            border-top: 4px solid var(--accent);
+        }
+
+        .quality {
+            border-top: 4px solid var(--success);
+        }
+
+        .process {
+            border-top: 4px solid var(--warning);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--dark);
+            color: white;
+            border-radius: var(--radius);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diseño de Software y Mejores Prácticas</h1>
+            <p class="subtitle">Principios fundamentales para crear sistemas robustos, eficientes y sostenibles</p>
+        </header>
+
+        <div class="infographic-grid">
+            <div class="card design">
+                <div class="card-header">
+                    <div class="icon">1</div>
+                    <h2>Diseño de Software</h2>
+                </div>
+                <p>Proceso de creación de una estructura que permite construir software eficiente, escalable y fácil de mantener. Incluye:</p>
+                <ul>
+                    <li>Planificación de arquitectura</li>
+                    <li>Selección de tecnologías</li>
+                    <li>Creación de diagramas y modelos</li>
+                    <li>Patrones de diseño reutilizables</li>
+                </ul>
+            </div>
+
+            <div class="card quality">
+                <div class="card-header">
+                    <div class="icon">2</div>
+                    <h2>Mejores Prácticas</h2>
+                </div>
+                <p>Costumbres y decisiones que mejoran la agilidad, legibilidad, mantenimiento y escalabilidad de los proyectos:</p>
+                <ul>
+                    <li>Guías contextuales, no reglas absolutas</li>
+                    <li>Mejoran el trabajo en equipo</li>
+                    <li>Evitan "reinventar la rueda"</li>
+                    <li>Aumentan la madurez en evaluación de calidad</li>
+                </ul>
+            </div>
+
+            <div class="card architecture">
+                <div class="card-header">
+                    <div class="icon">3</div>
+                    <h2>Arquitectura Escalable</h2>
+                </div>
+                <p>Capacidad de gestionar más usuarios, transacciones o datos manteniendo buen rendimiento:</p>
+                <ul>
+                    <li>Escalado horizontal (añadir servidores)</li>
+                    <li>Fragmentación y replicación de BD</li>
+                    <li>Uso de memoria caché</li>
+                    <li>Arquitectura sin estado (stateless)</li>
+                </ul>
+            </div>
+
+            <div class="card architecture">
+                <div class="card-header">
+                    <div class="icon">4</div>
+                    <h2>Tolerancia a Fallos</h2>
+                </div>
+                <p>Asegura que el sistema funcione cuando fallan componentes:</p>
+                <ul>
+                    <li>Disyuntores y reinicios</li>
+                    <li>Conmutación por error</li>
+                    <li>Redundancia y balanceo de carga</li>
+                    <li>Degradación gradual</li>
+                </ul>
+            </div>
+
+            <div class="card quality">
+                <div class="card-header">
+                    <div class="icon">5</div>
+                    <h2>Seguridad Escalable</h2>
+                </div>
+                <p>Protección de datos y recursos contra accesos no autorizados:</p>
+                <ul>
+                    <li>Principio del mínimo privilegio</li>
+                    <li>Autenticación robusta (OAuth, JWT)</li>
+                    <li>Cifrado de datos (tránsito y reposo)</li>
+                    <li>APIs seguras (limitación, validación)</li>
+                </ul>
+            </div>
+
+            <div class="card process">
+                <div class="card-header">
+                    <div class="icon">6</div>
+                    <h2>Pruebas y CI/CD</h2>
+                </div>
+                <p>Fundamentales para la fiabilidad del sistema:</p>
+                <ul>
+                    <li>Pruebas exhaustivas (unitarias, integración, E2E)</li>
+                    <li>Desarrollo basado en pruebas (TDD)</li>
+                    <li>Integración continua/Despliegue continuo</li>
+                    <li>Detección temprana de errores</li>
+                </ul>
+            </div>
+
+            <div class="card full-width">
+                <h2>Principios SOLID</h2>
+                <div class="two-columns">
+                    <div>
+                        <h3>Single Responsibility</h3>
+                        <p>Cada clase debe tener una única razón para cambiar.</p>
+                        
+                        <h3>Open-Close</h3>
+                        <p>Entidades abiertas a extensión, cerradas a modificación.</p>
+                        
+                        <h3>Liskov Substitution</h3>
+                        <p>Objetos de superclase reemplazables por subclases.</p>
+                    </div>
+                    <div>
+                        <h3>Interface Segregation</h3>
+                        <p>Clientes no forzados a depender de interfaces no usadas.</p>
+                        
+                        <h3>Dependency Inversion</h3>
+                        <p>Depender de abstracciones, no de concreciones.</p>
+                        
+                        <p>Optimizan calidad de código, facilitan detección de errores y reducen costes de mantenimiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card design">
+                <div class="card-header">
+                    <div class="icon">7</div>
+                    <h2>Patrones de Diseño</h2>
+                </div>
+                <p>Soluciones reutilizables para problemas comunes:</p>
+                <h3>Creacionales</h3>
+                <p>Creación de objetos (Singleton, Factory Method)</p>
+                
+                <h3>Estructurales</h3>
+                <p>Ensamblar objetos en estructuras (Adapter, Decorator)</p>
+                
+                <h3>De Comportamiento</h3>
+                <p>Interacción entre objetos (Observer, Strategy)</p>
+            </div>
+
+            <div class="card process">
+                <div class="card-header">
+                    <div class="icon">8</div>
+                    <h2>Refactorización</h2>
+                </div>
+                <p>Mejorar la estructura interna sin cambiar comportamiento externo:</p>
+                <ul>
+                    <li>Elimina duplicaciones</li>
+                    <li>Reduce complejidad</li>
+                    <li>Mejora legibilidad y mantenibilidad</li>
+                    <li>Reduce deuda técnica</li>
+                </ul>
+            </div>
+
+            <div class="card full-width">
+                <h2>Gestión de Proyectos</h2>
+                <div class="two-columns">
+                    <div>
+                        <h3>Gestión de Expectativas</h3>
+                        <p>Relación estrecha cliente-equipo para conocer necesidades y proyectar diseños escalables.</p>
+                    </div>
+                    <div>
+                        <h3>Planificación y Prototipado</h3>
+                        <p>Plan detallado y prototipos funcionales para validar ideas y obtener feedback temprano.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Resumen basado en el documento "diseño de software.pdf" - Principios fundamentales para desarrollo de software</p>
+        </footer>
+    </div>
+</body>
+</html>
